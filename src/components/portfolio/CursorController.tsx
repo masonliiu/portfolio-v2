@@ -34,7 +34,7 @@ export default function CursorController() {
 
     const smallSize = 44;
     const largeSize = 460;
-    const proximity = 280;
+    const proximity = 160;
 
     const state: BlobState = {
       x: window.innerWidth / 2,
@@ -61,8 +61,13 @@ export default function CursorController() {
       }
     };
 
+    let pointerX = state.targetX;
+    let pointerY = state.targetY;
+
     const handleMove = (event: PointerEvent) => {
-      updateTargets(event.clientX, event.clientY);
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      updateTargets(pointerX, pointerY);
     };
 
     const handleResize = () => {
@@ -76,6 +81,7 @@ export default function CursorController() {
 
     let raf = 0;
     const tick = () => {
+      updateTargets(pointerX, pointerY);
       state.x = state.targetX;
       state.y = state.targetY;
       state.size += (state.targetSize - state.size) * 0.18;
