@@ -32,7 +32,7 @@ export default function HomePage() {
           <div>
             <p className="hero-kicker">Mason Liu</p>
             <div className="hero-stack" data-hero>
-              <div className="hero-text">
+              <div className="hero-text" data-blob-target>
                 {heroLines.map((line) => (
                   <span
                     key={line}
@@ -96,7 +96,6 @@ export default function HomePage() {
               className="section-title outline-fill blob-text"
               data-fill
               data-blob-text="Full-stack engineer. Interaction focus."
-              data-blob-target
             >
               Full-stack engineer. Interaction focus.
             </h2>
@@ -122,7 +121,6 @@ export default function HomePage() {
               className="section-title outline-fill blob-text"
               data-fill
               data-blob-text="Visual studies."
-              data-blob-target
             >
               Visual studies.
             </h2>
@@ -147,7 +145,6 @@ export default function HomePage() {
               className="section-title outline-fill blob-text"
               data-fill
               data-blob-text="Walk the studio."
-              data-blob-target
             >
               Walk the studio.
             </h2>
@@ -180,7 +177,6 @@ export default function HomePage() {
             className="section-title outline-fill blob-text"
             data-fill
             data-blob-text="Shipping."
-            data-blob-target
           >
             Shipping.
           </h2>
@@ -198,14 +194,13 @@ export default function HomePage() {
         <div className="section-grid">
           <div>
             <p className="section-kicker">Contact</p>
-            <h2
-              className="section-title outline-fill blob-text"
-              data-fill
-              data-blob-text="Let&apos;s build."
-              data-blob-target
-            >
-              Let&apos;s build.
-            </h2>
+          <h2
+            className="section-title outline-fill blob-text"
+            data-fill
+            data-blob-text="Let&apos;s build."
+          >
+            Let&apos;s build.
+          </h2>
           </div>
           <div className="section-content">
             <p className="section-subtitle">

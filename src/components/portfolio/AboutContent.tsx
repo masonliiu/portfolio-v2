@@ -7,7 +7,6 @@ export default function AboutContent() {
           className="section-title outline-fill blob-text"
           data-fill
           data-blob-text="Mason Liu."
-          data-blob-target
         >
           Mason Liu.
         </h1>

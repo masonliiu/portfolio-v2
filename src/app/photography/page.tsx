@@ -12,7 +12,6 @@ export default function PhotographyPage() {
               className="section-title outline-fill blob-text"
               data-fill
               data-blob-text="Studies."
-              data-blob-target
             >
               Studies.
             </h1>

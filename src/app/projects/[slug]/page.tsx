@@ -28,7 +28,6 @@ export default async function ProjectDetailPage({
             className="section-title outline-fill blob-text"
             data-fill
             data-blob-text={project.title}
-            data-blob-target
           >
             {project.title}
           </h1>

@@ -51,9 +51,9 @@ export default function CursorController() {
       state.targetSize = smallSize;
       for (const target of blobTargets) {
         const rect = target.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const distance = Math.hypot(x - centerX, y - centerY);
+        const dx = Math.max(rect.left - x, 0, x - rect.right);
+        const dy = Math.max(rect.top - y, 0, y - rect.bottom);
+        const distance = Math.hypot(dx, dy);
         if (distance < proximity) {
           state.targetSize = largeSize;
           break;
@@ -76,12 +76,10 @@ export default function CursorController() {
 
     let raf = 0;
     const tick = () => {
-      state.x += (state.targetX - state.x) * 0.16;
-      state.y += (state.targetY - state.y) * 0.16;
+      state.x = state.targetX;
+      state.y = state.targetY;
       state.size += (state.targetSize - state.size) * 0.18;
 
-      if (Math.abs(state.targetX - state.x) < 0.1) state.x = state.targetX;
-      if (Math.abs(state.targetY - state.y) < 0.1) state.y = state.targetY;
       if (Math.abs(state.targetSize - state.size) < 0.1) {
         state.size = state.targetSize;
       }

@@ -154,31 +154,26 @@ export default function MotionOrchestrator() {
 
     const fillTargets = gsap.utils.toArray<HTMLElement>("[data-fill]");
     const triggers: ScrollTrigger[] = [];
-    const tweens: gsap.core.Tween[] = [];
     fillTargets.forEach((target) => {
-      const tween = gsap.fromTo(
-        target,
-        { "--fill-progress": "0%" },
-        {
-          "--fill-progress": "100%",
-          ease: "none",
-          scrollTrigger: {
-            trigger: target,
-            start: "top 85%",
-            end: "top 25%",
-            scrub: true,
-          },
-        }
-      );
-      if (tween.scrollTrigger) {
-        triggers.push(tween.scrollTrigger);
-      }
-      tweens.push(tween);
+      target.style.setProperty("--fill-progress", "0%");
+      const trigger = ScrollTrigger.create({
+        trigger: target,
+        start: "top 85%",
+        end: "top 25%",
+        scrub: true,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          target.style.setProperty(
+            "--fill-progress",
+            `${Math.round(self.progress * 100)}%`
+          );
+        },
+      });
+      triggers.push(trigger);
     });
     ScrollTrigger.refresh();
 
     return () => {
-      tweens.forEach((tween) => tween.kill());
       triggers.forEach((trigger) => trigger.kill());
     };
   }, [isImmersive, pathname]);

@@ -256,6 +256,8 @@ button:disabled {
   position: relative;
   display: block;
   width: 100%;
+  max-width: min(780px, 100%);
+  margin: 0 auto;
   overflow: visible;
 }
 
@@ -263,11 +265,11 @@ button:disabled {
   font-family: var(--font-display);
   font-size: clamp(4rem, 12vw, 10rem);
   font-weight: 700;
-  line-height: 0.8;
+  line-height: 1;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   display: grid;
-  gap: clamp(0.2rem, 1vw, 0.6rem);
+  gap: clamp(1rem, 3vw, 2.4rem);
   text-align: center;
   color: var(--ink);
 }
@@ -283,6 +285,8 @@ button:disabled {
   transform: translate(-50%, -50%);
   opacity: 1;
   transition: width 0.2s ease, height 0.2s ease;
+  box-shadow: none;
+  filter: none;
   pointer-events: none;
   z-index: 1;
 }
@@ -293,18 +297,7 @@ button:disabled {
   z-index: 2;
   --blob-mask-x: 50%;
   --blob-mask-y: 50%;
-  mask-image: radial-gradient(
-    circle var(--blob-size) at var(--blob-mask-x) var(--blob-mask-y),
-    transparent 0%,
-    transparent 60%,
-    black 72%
-  );
-  -webkit-mask-image: radial-gradient(
-    circle var(--blob-size) at var(--blob-mask-x) var(--blob-mask-y),
-    transparent 0%,
-    transparent 60%,
-    black 72%
-  );
+  color: var(--ink);
 }
 
 .blob-text::after {
@@ -313,17 +306,11 @@ button:disabled {
   inset: 0;
   width: 100%;
   color: var(--blob-ink);
-  mask-image: radial-gradient(
-    circle var(--blob-size) at var(--blob-mask-x) var(--blob-mask-y),
-    black 0%,
-    black 60%,
-    transparent 72%
+  clip-path: circle(
+    calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
   );
-  -webkit-mask-image: radial-gradient(
-    circle var(--blob-size) at var(--blob-mask-x) var(--blob-mask-y),
-    black 0%,
-    black 60%,
-    transparent 72%
+  -webkit-clip-path: circle(
+    calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
   );
   pointer-events: none;
   z-index: 3;
@@ -357,6 +344,8 @@ button:disabled {
   align-items: center;
   justify-items: center;
   text-align: center;
+  max-width: min(960px, 100%);
+  margin: 0 auto;
 }
 
 .hero-meta {
@@ -430,6 +419,7 @@ button:disabled {
   --fill-progress: 0%;
   color: transparent;
   -webkit-text-stroke: 1px color-mix(in srgb, var(--ink) 55%, transparent);
+  -webkit-text-fill-color: transparent;
   background-image: linear-gradient(90deg, var(--ink), var(--ink));
   background-size: var(--fill-progress, 0%) 100%;
   background-repeat: no-repeat;
@@ -699,6 +689,18 @@ button:disabled {
   display: grid;
   gap: 2.5rem;
   width: 100%;
+  margin-top: 2.5rem;
+}
+
+#signal .section-center {
+  align-items: center;
+  text-align: center;
+}
+
+#signal .signal-stack {
+  max-width: min(1100px, 100%);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .signal-item {

@@ -22,7 +22,6 @@ export default function WorkFocus({ className, id }: WorkFocusProps) {
           className="section-title outline-fill blob-text"
           data-fill
           data-blob-text="Projects."
-          data-blob-target
         >
           Projects.
         </h2>
