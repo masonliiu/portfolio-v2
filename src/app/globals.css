@@ -274,7 +274,7 @@ button:disabled {
   color: var(--ink);
 }
 
-.hero-blob {
+.cursor-blob {
   position: fixed;
   left: var(--blob-x);
   top: var(--blob-y);
@@ -805,7 +805,7 @@ body.immersive-ready {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-blob {
+  .cursor-blob {
     display: none;
   }
 
@@ -820,7 +820,7 @@ body.immersive-ready {
 }
 
 @media (pointer: coarse) {
-  .hero-blob {
+  .cursor-blob {
     display: none;
   }
 
@@ -832,4 +832,7 @@ body.immersive-ready {
   .blob-text::after {
     display: none;
   }
+}
+body.immersive-mode .cursor-blob {
+  display: none;
 }

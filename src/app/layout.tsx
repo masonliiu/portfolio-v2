@@ -39,6 +39,7 @@ export default function RootLayout({
       >
         <MotionOrchestrator />
         <CursorController />
+        <div className="cursor-blob" aria-hidden="true" />
         <ImmersiveSnapshotOverlay />
         <ViewTransitions>
           <RouteHeader />

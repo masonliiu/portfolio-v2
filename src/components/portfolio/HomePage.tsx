@@ -44,7 +44,6 @@ export default function HomePage() {
                   </span>
                 ))}
               </div>
-              <div className="hero-blob" aria-hidden="true" />
             </div>
             <p className="hero-subline">
               CS @ UTD · Full-stack systems · Dallas, TX
