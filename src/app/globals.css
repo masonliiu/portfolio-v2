@@ -166,6 +166,8 @@ button:disabled {
   width: 100%;
   margin: 0;
   padding: calc(var(--page-y) + 4rem) var(--page-x) var(--page-y);
+  position: relative;
+  z-index: 2;
 }
 
 .home-shell {
@@ -175,6 +177,8 @@ button:disabled {
   display: flex;
   flex-direction: column;
   gap: clamp(5rem, 12vw, 9rem);
+  position: relative;
+  z-index: 2;
 }
 
 .section-block {
@@ -288,7 +292,7 @@ button:disabled {
   box-shadow: none;
   filter: none;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
 .blob-text {

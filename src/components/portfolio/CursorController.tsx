@@ -26,15 +26,15 @@ export default function CursorController() {
     if (prefersReducedMotion || !finePointer) return;
 
     let blobTargets = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-blob-target]")
+      document.querySelectorAll<HTMLElement>(".blob-text")
     );
     let blobTexts = Array.from(
       document.querySelectorAll<HTMLElement>(".blob-text")
     );
 
-    const smallSize = 44;
-    const largeSize = 460;
-    const proximity = 160;
+    const smallSize = 36;
+    const largeSize = 520;
+    const hitPadding = 18;
 
     const state: BlobState = {
       x: window.innerWidth / 2,
@@ -51,10 +51,11 @@ export default function CursorController() {
       state.targetSize = smallSize;
       for (const target of blobTargets) {
         const rect = target.getBoundingClientRect();
-        const dx = Math.max(rect.left - x, 0, x - rect.right);
-        const dy = Math.max(rect.top - y, 0, y - rect.bottom);
-        const distance = Math.hypot(dx, dy);
-        if (distance < proximity) {
+        const insideX =
+          x >= rect.left - hitPadding && x <= rect.right + hitPadding;
+        const insideY =
+          y >= rect.top - hitPadding && y <= rect.bottom + hitPadding;
+        if (insideX && insideY) {
           state.targetSize = largeSize;
           break;
         }
@@ -72,7 +73,7 @@ export default function CursorController() {
 
     const handleResize = () => {
       blobTargets = Array.from(
-        document.querySelectorAll<HTMLElement>("[data-blob-target]")
+        document.querySelectorAll<HTMLElement>(".blob-text")
       );
       blobTexts = Array.from(
         document.querySelectorAll<HTMLElement>(".blob-text")
