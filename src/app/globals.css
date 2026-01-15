@@ -284,11 +284,11 @@ button:disabled {
   background: var(--accent);
   transform: translate(-50%, -50%);
   opacity: 1;
-  transition: width 0.2s ease, height 0.2s ease;
+  transition: none;
   box-shadow: none;
   filter: none;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 .blob-text {
@@ -297,28 +297,27 @@ button:disabled {
   z-index: 2;
   --blob-mask-x: 50%;
   --blob-mask-y: 50%;
+  color: var(--ink);
 }
 
 .blob-text::after {
-  content: none;
+  content: attr(data-blob-text);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  color: var(--blob-ink);
+  clip-path: circle(
+    calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
+  );
+  -webkit-clip-path: circle(
+    calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
+  );
+  pointer-events: none;
+  z-index: 3;
 }
 
 .blob-text:not(.outline-fill) {
-  color: transparent;
-  background-image: radial-gradient(
-    circle calc(var(--blob-size) * 0.5)
-      at var(--blob-mask-x) var(--blob-mask-y),
-    var(--blob-ink) 0%,
-    var(--blob-ink) 55%,
-    var(--ink) 56%,
-    var(--ink) 100%
-  );
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: 0 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--ink);
 }
 
 .section-title.blob-text {
