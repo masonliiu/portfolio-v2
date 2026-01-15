@@ -32,9 +32,9 @@ export default function CursorController() {
       document.querySelectorAll<HTMLElement>(".blob-text")
     );
 
-    const smallSize = 70;
-    const largeSize = 360;
-    const proximity = 240;
+    const smallSize = 44;
+    const largeSize = 460;
+    const proximity = 280;
 
     const state: BlobState = {
       x: window.innerWidth / 2,

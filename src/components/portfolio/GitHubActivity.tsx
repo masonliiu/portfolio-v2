@@ -102,20 +102,20 @@ export default function GitHubActivity() {
         </a>
       </div>
       {status === "loading" ? (
-        <p className="mt-2 text-sm text-[var(--muted-2)]">
+        <p className="mt-2 text-base text-[var(--muted-2)]">
           Loading GitHub activity...
         </p>
       ) : null}
       {status === "error" ? (
-        <p className="mt-2 text-sm text-[var(--muted-2)]">
+        <p className="mt-2 text-base text-[var(--muted-2)]">
           GitHub activity unavailable right now.
         </p>
       ) : null}
       {status === "ready" ? (
         <>
-          <ul className="mt-3 space-y-2 text-sm text-[var(--muted)]">
+          <ul className="mt-3 space-y-3 text-base text-[var(--muted)]">
             {commits.length === 0 ? (
-              <li className="text-sm text-[var(--muted-2)]">
+              <li className="text-base text-[var(--muted-2)]">
                 No recent public commits.
               </li>
             ) : (
@@ -128,7 +128,7 @@ export default function GitHubActivity() {
                     rel="noreferrer"
                     title={`${commit.repo}: ${commit.message}`}
                   >
-                    <span className="flex-shrink-0 font-semibold text-[var(--ink)]">
+                    <span className="flex-shrink-0 font-bold text-[var(--ink)]">
                       {commit.repo.split("/")[1]}:
                     </span>
                     <span className="min-w-0 flex-1 truncate">

@@ -155,9 +155,9 @@ export default function ContributionGraph() {
     const resize = () => {
       const columns = weeks.length || 1;
       const width = wrapper.clientWidth;
-      const gap = 2;
+      const gap = 3;
       const rawSize = Math.floor((width - gap * (columns - 1)) / columns);
-      const size = clamp(rawSize, 6, 18);
+      const size = clamp(rawSize, 10, 24);
       setCellSize(size);
       setCellGap(gap);
     };
@@ -218,12 +218,12 @@ export default function ContributionGraph() {
         </a>
       </div>
       {status === "loading" ? (
-        <p className="mt-2 text-sm text-[var(--muted-2)]">
+        <p className="mt-2 text-base text-[var(--muted-2)]">
           Loading contributions...
         </p>
       ) : null}
       {status === "error" ? (
-        <p className="mt-2 text-sm text-[var(--muted-2)]">
+        <p className="mt-2 text-base text-[var(--muted-2)]">
           Contributions unavailable right now.
         </p>
       ) : null}
@@ -236,7 +236,7 @@ export default function ContributionGraph() {
             style={gridStyle}
           >
             <div
-              className="grid text-[10px] text-[var(--muted-2)]"
+              className="grid text-xs text-[var(--muted-2)]"
               style={{
                 gridTemplateColumns: `repeat(${weeks.length}, var(--cell-size))`,
                 columnGap: "var(--cell-gap)",
@@ -303,7 +303,7 @@ export default function ContributionGraph() {
           ) : null}
         </div>
       ) : null}
-      <div className="mt-3 flex items-center justify-center gap-2 text-xs text-[var(--muted-2)]">
+      <div className="mt-3 flex items-center justify-center gap-2 text-sm text-[var(--muted-2)]">
         <span>Less</span>
         <div className="flex items-center gap-1">
           <span

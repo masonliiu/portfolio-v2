@@ -174,25 +174,23 @@ export default function HomePage() {
       </section>
 
       <section className="section-block" id="signal" data-reveal>
-        <div className="section-grid">
-          <div>
-            <p className="section-kicker">Signal</p>
-            <h2
-              className="section-title outline-fill blob-text"
-              data-fill
-              data-blob-text="Shipping."
-              data-blob-target
-            >
-              Shipping.
-            </h2>
-            <p className="section-subtitle">
-              Recent commits and a full year of contribution cadence.
-            </p>
-          </div>
-          <div className="signal-grid">
-            <GitHubActivity />
-            <ContributionGraph />
-          </div>
+        <div className="section-center">
+          <p className="section-kicker">Signal</p>
+          <h2
+            className="section-title outline-fill blob-text"
+            data-fill
+            data-blob-text="Shipping."
+            data-blob-target
+          >
+            Shipping.
+          </h2>
+          <p className="section-subtitle">
+            Recent commits and a full year of contribution cadence.
+          </p>
+        </div>
+        <div className="signal-stack">
+          <GitHubActivity />
+          <ContributionGraph />
         </div>
       </section>
 
