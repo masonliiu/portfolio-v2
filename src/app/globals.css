@@ -390,8 +390,8 @@ button:disabled {
 
 .quick-links {
   position: fixed;
-  left: calc(var(--page-x) * 0.6);
-  bottom: calc(var(--page-y) * 0.85);
+  left: calc(var(--page-x) * 0.5);
+  bottom: calc(var(--page-y) * 0.35);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
