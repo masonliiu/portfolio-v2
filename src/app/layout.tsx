@@ -6,6 +6,7 @@ import RouteHeader from "@/components/portfolio/RouteHeader";
 import ImmersiveSnapshotOverlay from "@/components/immersive/ImmersiveSnapshotOverlay";
 import MotionOrchestrator from "@/components/portfolio/MotionOrchestrator";
 import CursorController from "@/components/portfolio/CursorController";
+import QuickLinksRail from "@/components/portfolio/QuickLinksRail";
 import { ViewTransitions } from "next-view-transitions";
 
 const bebasNeue = Bebas_Neue({
@@ -43,6 +44,7 @@ export default function RootLayout({
         <ImmersiveSnapshotOverlay />
         <ViewTransitions>
           <RouteHeader />
+          <QuickLinksRail />
           {children}
         </ViewTransitions>
       </body>

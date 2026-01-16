@@ -401,6 +401,7 @@ button:disabled {
   text-transform: uppercase;
   color: var(--muted-2);
   z-index: 30;
+  pointer-events: auto;
 }
 
 .quick-link {
