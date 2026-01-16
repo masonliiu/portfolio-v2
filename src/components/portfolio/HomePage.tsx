@@ -46,7 +46,10 @@ export default function HomePage() {
               </div>
             </div>
             <p className="hero-subline">
-              CS @ UTD · Full-stack systems · Dallas, TX
+              Computer Science @ UTD
+            </p>
+            <p className="hero-subline">
+              Dallas, TX
             </p>
             <div className="quick-links">
               {quickLinks.map((item) => (
@@ -69,19 +72,6 @@ export default function HomePage() {
               >
                 Immersive
               </ImmersiveLaunchButton>
-            </div>
-          </div>
-          <div className="hero-meta">
-            <div className="meta-block">
-              <span>Focus</span>
-              <div>Product systems</div>
-              <div>Interaction design</div>
-              <div>3D experiences</div>
-            </div>
-            <div className="meta-block">
-              <span>Now</span>
-              <div>Open to internships</div>
-              <div>Open to full-time</div>
             </div>
           </div>
         </div>
