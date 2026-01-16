@@ -35,6 +35,10 @@ html {
   font-family: var(--font-body);
   color-scheme: dark;
   background: var(--paper);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: default;
 }
 
 html.lenis {
@@ -64,13 +68,26 @@ body {
   overflow-x: hidden;
   font-weight: 700;
   background: var(--paper);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: default;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  user-select: none;
-  -webkit-user-select: none;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+}
+
+::selection,
+::-moz-selection {
+  background: transparent;
+  color: inherit;
 }
 
 img {
@@ -81,6 +98,11 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a,
+button {
+  cursor: pointer;
 }
 
 a:hover {

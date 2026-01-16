@@ -7,6 +7,7 @@ import ImmersiveSnapshotOverlay from "@/components/immersive/ImmersiveSnapshotOv
 import MotionOrchestrator from "@/components/portfolio/MotionOrchestrator";
 import CursorController from "@/components/portfolio/CursorController";
 import QuickLinksRail from "@/components/portfolio/QuickLinksRail";
+import SelectionLock from "@/components/portfolio/SelectionLock";
 import { ViewTransitions } from "next-view-transitions";
 
 const bebasNeue = Bebas_Neue({
@@ -40,6 +41,7 @@ export default function RootLayout({
       >
         <MotionOrchestrator />
         <CursorController />
+        <SelectionLock />
         <div className="cursor-blob" aria-hidden="true" />
         <ImmersiveSnapshotOverlay />
         <ViewTransitions>
