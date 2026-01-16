@@ -1,14 +1,15 @@
 "use client";
 
 import { Link as TransitionLink } from "next-view-transitions";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import ImmersiveLaunchButton from "./ImmersiveLaunchButton";
 
 const homeItems = [
-  { label: "About", href: "/#about" },
-  { label: "Work", href: "/#work" },
-  { label: "Signal", href: "/#signal" },
-  { label: "Contact", href: "/#contact" },
+  { label: "About", href: "/#about", id: "about" },
+  { label: "Work", href: "/#work", id: "work" },
+  { label: "Signal", href: "/#signal", id: "signal" },
+  { label: "Contact", href: "/#contact", id: "contact" },
 ];
 
 const innerItems = [
@@ -22,6 +23,52 @@ export default function TerminalHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const navItems = isHome ? homeItems : innerItems;
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const activeRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!isHome) return;
+
+    const sections = homeItems
+      .map((item) => item.id)
+      .filter((id): id is string => Boolean(id));
+    const elements = sections
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+    if (!elements.length) return;
+
+    const updateActive = (next: string) => {
+      if (activeRef.current === next) return;
+      activeRef.current = next;
+      setActiveId(next);
+    };
+
+    const hash = window.location.hash.replace("#", "");
+    if (hash && sections.includes(hash)) {
+      updateActive(hash);
+    } else {
+      updateActive(sections[0]);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (!visible.length) return;
+        const next = visible[0].target.id;
+        if (next) updateActive(next);
+      },
+      {
+        rootMargin: "-20% 0px -55% 0px",
+        threshold: [0.15, 0.45, 0.75],
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, [isHome]);
 
   return (
     <header className="site-header">
@@ -53,9 +100,18 @@ export default function TerminalHeader() {
               <TransitionLink
                 key={item.label}
                 href={item.href}
-                className="nav-link"
+                className={`nav-link${
+                  isHome && item.id && activeId === item.id
+                    ? " nav-link--active"
+                    : ""
+                }`}
                 data-magnet
                 data-cursor={item.label}
+                aria-current={
+                  isHome && item.id && activeId === item.id
+                    ? "location"
+                    : undefined
+                }
               >
                 {item.label}
               </TransitionLink>

@@ -125,21 +125,26 @@ button:disabled {
 
 .header-inner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
   padding: var(--page-y) var(--page-x) 0;
   pointer-events: auto;
+  position: relative;
 }
 
 .nav-links {
   display: flex;
-  align-items: center;
-  gap: 1.8rem;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.9rem;
   font-size: 0.7rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--muted-2);
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .nav-link {
@@ -149,7 +154,11 @@ button:disabled {
 
 .nav-link:hover,
 .nav-link:focus-visible {
-  color: var(--accent);
+  color: var(--ink);
+}
+
+.nav-link--active {
+  color: var(--ink);
 }
 
 .nav-link--accent {
@@ -246,6 +255,7 @@ button:disabled {
   position: relative;
   --blob-mask-x: 50%;
   --blob-mask-y: 50%;
+  padding-bottom: calc(var(--page-y) + 6rem);
 }
 
 .hero-kicker {
@@ -379,12 +389,15 @@ button:disabled {
 }
 
 .quick-links {
+  position: absolute;
+  left: var(--page-x);
+  bottom: var(--page-y);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.6rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.32em;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--muted-2);
 }
@@ -396,7 +409,7 @@ button:disabled {
 
 .quick-link:hover,
 .quick-link:focus-visible {
-  color: var(--accent);
+  color: var(--ink);
 }
 
 .quick-link--accent {
@@ -772,6 +785,16 @@ body.immersive-ready {
 }
 
 @media (max-width: 900px) {
+  .header-inner {
+    align-items: center;
+  }
+
+  .nav-links {
+    position: static;
+    flex-direction: row;
+    gap: 1.4rem;
+  }
+
   .hero-grid,
   .section-grid {
     grid-template-columns: 1fr;
@@ -784,6 +807,15 @@ body.immersive-ready {
   .hero-stage {
     min-height: auto;
     padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .quick-links {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2.5rem;
   }
 
   .work-focus__grid {
