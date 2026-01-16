@@ -263,7 +263,7 @@ button:disabled {
   font-weight: 700;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--muted-2);
+  color: var(--ink);
 }
 
 .hero-stack {
@@ -345,7 +345,7 @@ button:disabled {
 
 .hero-subline {
   max-width: 32rem;
-  color: var(--muted);
+  color: var(--ink);
   font-size: 1.05rem;
   line-height: 1.7;
   margin: 0 auto;

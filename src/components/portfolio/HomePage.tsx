@@ -23,7 +23,9 @@ export default function HomePage() {
       <section className="hero-stage blob-stage" data-reveal>
         <div className="hero-grid">
           <div>
-            <p className="hero-kicker">Mason Liu</p>
+            <p className="hero-kicker blob-text" data-blob-text="Mason Liu">
+              Mason Liu
+            </p>
             <div className="hero-stack" data-hero>
               <div className="hero-text" data-blob-target>
                 {heroLines.map((line) => (
@@ -38,10 +40,13 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <p className="hero-subline">
+            <p
+              className="hero-subline blob-text"
+              data-blob-text="Computer Science @ UTD"
+            >
               Computer Science @ UTD
             </p>
-            <p className="hero-subline">
+            <p className="hero-subline blob-text" data-blob-text="Dallas, TX">
               Dallas, TX
             </p>
           </div>
