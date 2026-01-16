@@ -25,6 +25,7 @@
 
   --page-x: clamp(1.2rem, 4vw, 4.5rem);
   --page-y: clamp(2.4rem, 5vw, 4.8rem);
+  --safe-x: calc(var(--page-x) * 2.6);
 
   --blob-x: 50vw;
   --blob-y: 50vh;
@@ -199,7 +200,7 @@ button:disabled {
 .page-shell {
   width: 100%;
   margin: 0;
-  padding: calc(var(--page-y) + 4rem) var(--page-x) var(--page-y);
+  padding: calc(var(--page-y) + 4rem) var(--safe-x) var(--page-y);
   position: relative;
   z-index: 2;
 }
@@ -207,7 +208,7 @@ button:disabled {
 .home-shell {
   width: 100%;
   margin: 0;
-  padding: calc(var(--page-y) + 4rem) var(--page-x) var(--page-y);
+  padding: calc(var(--page-y) + 4rem) var(--safe-x) var(--page-y);
   display: flex;
   flex-direction: column;
   gap: clamp(5rem, 12vw, 9rem);
@@ -812,6 +813,10 @@ body.immersive-ready {
 }
 
 @media (max-width: 900px) {
+  :root {
+    --safe-x: var(--page-x);
+  }
+
   .header-inner {
     align-items: center;
   }
