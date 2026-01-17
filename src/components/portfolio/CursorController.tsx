@@ -95,6 +95,7 @@ export default function CursorController() {
       root.style.setProperty("--blob-x", `${state.x}px`);
       root.style.setProperty("--blob-y", `${state.y}px`);
       root.style.setProperty("--blob-size", `${state.size}px`);
+      root.classList.toggle("blob-expanded", state.targetSize === largeSize);
 
       blobTexts.forEach((element) => {
         const rect = element.getBoundingClientRect();
@@ -115,6 +116,7 @@ export default function CursorController() {
       cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", handleMove);
       window.removeEventListener("resize", handleResize);
+      document.documentElement.classList.remove("blob-expanded");
     };
   }, [pathname]);
 

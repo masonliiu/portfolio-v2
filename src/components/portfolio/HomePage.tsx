@@ -24,6 +24,7 @@ export default function HomePage() {
         <div className="hero-grid">
           <div>
             <p className="hero-kicker blob-text" data-blob-text="Mason Liu">
+
               Mason Liu
             </p>
             <div className="hero-stack" data-hero>
@@ -56,7 +57,7 @@ export default function HomePage() {
       <section className="section-block" id="about" data-reveal>
         <div className="section-grid">
           <div>
-            <p className="section-kicker">About</p>
+            <p className="hero-kicker blob-text" data-blob-text="About">About</p>
             <h2
               className="section-title outline-fill blob-text"
               data-fill
@@ -64,16 +65,6 @@ export default function HomePage() {
             >
               Full-stack engineer. Interaction focus.
             </h2>
-          </div>
-          <div className="section-content">
-            <p className="section-subtitle">
-              Shipping products, systems, and 3D experiments.
-            </p>
-            <div className="chip-row">
-              {aboutChips.map((chip) => (
-                <span key={chip}>{chip}</span>
-              ))}
-            </div>
           </div>
         </div>
       </section>

@@ -8,8 +8,8 @@
   --ink: #f3ede3;
   --muted: #b9b2a7;
   --muted-2: #8d8579;
-  --accent: #4fffd6;
-  --accent-2: #4dd0ff;
+  --accent: #ff4d9a;
+  --accent-2: #ff7bd5;
   --blob-ink: #0b1013;
   --line: color-mix(in srgb, var(--ink) 14%, transparent);
   --soft-line: color-mix(in srgb, var(--ink) 7%, transparent);
@@ -329,7 +329,36 @@ button:disabled {
   filter: none;
   pointer-events: none;
   z-index: 1;
+  overflow: visible;
+  isolation: isolate;
 }
+
+.cursor-blob::before,
+.cursor-blob::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.cursor-blob::before {
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+.cursor-blob::after {
+  display: none;
+}
+
+.blob-expanded .cursor-blob::before,
+.blob-expanded .cursor-blob::after {
+  opacity: 1;
+}
+
 
 .blob-text {
   position: relative;
@@ -875,6 +904,10 @@ body.immersive-ready {
 @media (prefers-reduced-motion: reduce) {
   .cursor-blob {
     display: none;
+  }
+
+  .cursor-blob::after {
+    animation: none;
   }
 
   .blob-text {
