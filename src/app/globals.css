@@ -459,14 +459,19 @@ button:disabled {
 .hero-swap-text__reveal {
   display: block;
   white-space: nowrap;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+}
+
+.hero-swap-text__base {
+  z-index: 1;
+  color: var(--ink);
+  pointer-events: none;
 }
 
 .hero-swap-text__cover,
 .hero-swap-text__reveal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: max-content;
   pointer-events: none;
   clip-path: circle(
     calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
@@ -474,15 +479,6 @@ button:disabled {
   -webkit-clip-path: circle(
     calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
   );
-}
-
-.hero-swap-text__base {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: max-content;
-  z-index: 1;
-  color: var(--ink);
 }
 
 .hero-swap-text__cover {
