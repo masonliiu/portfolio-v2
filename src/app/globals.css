@@ -439,21 +439,23 @@ button:disabled {
 }
 
 .hero-swap-text {
-  display: inline-grid;
-  grid-template-areas: "stack";
-  align-items: start;
-  justify-items: start;
+  position: relative;
+  display: inline-block;
 }
 
 .hero-swap-text__base,
 .hero-swap-text__cover,
 .hero-swap-text__reveal {
-  grid-area: stack;
   display: block;
+  white-space: nowrap;
 }
 
 .hero-swap-text__cover,
 .hero-swap-text__reveal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
   pointer-events: none;
   clip-path: circle(
     calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
