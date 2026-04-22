@@ -327,8 +327,8 @@ button:disabled {
   text-align: center;
   gap: clamp(2rem, 6vw, 4rem);
   position: relative;
-  --blob-mask-x: 50%;
-  --blob-mask-y: 50%;
+  --blob-mask-x: 1%;
+  --blob-mask-y: 1%;
   padding-bottom: calc(var(--page-y) + 6rem);
 }
 
@@ -400,15 +400,12 @@ button:disabled {
 }
 
 .hero-text .hero-swap-text {
-  display: inline-grid;
-  grid-template-areas: "hero";
-  justify-items: center;
-  align-items: start;
+  display: inline-block;
   position: relative;
 }
 
 .hero-swap-text__sizer {
-  grid-area: hero;
+  display: block;
   visibility: hidden;
   white-space: nowrap;
   pointer-events: none;
@@ -417,7 +414,11 @@ button:disabled {
 .hero-swap-text__base,
 .hero-swap-text__cover,
 .hero-swap-text__reveal {
-  grid-area: hero;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
   white-space: nowrap;
   pointer-events: none;
 }
