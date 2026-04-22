@@ -5,10 +5,15 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { label: "About", href: "/#about", id: "about" },
-  { label: "Projects", href: "/#projects", id: "projects", match: "/projects" },
-  { label: "Experience", href: "/#experience", id: "experience" },
-  { label: "Contact", href: "/#contact", id: "contact" },
+  { label: "About", href: "/#about", ids: ["about"] },
+  {
+    label: "Projects",
+    href: "/#projects",
+    ids: ["projects"],
+    match: "/projects",
+  },
+  { label: "Experience", href: "/#experience", ids: ["experience"] },
+  { label: "Contact", href: "/#contact", ids: ["contact"] },
 ];
 
 export default function TerminalHeader() {
@@ -20,12 +25,18 @@ export default function TerminalHeader() {
   useEffect(() => {
     if (!isHome) return;
 
-    const sections = navItems
-      .map((item) => item.id)
-      .filter((id): id is string => Boolean(id));
-    const elements = sections
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
+    const sectionEntries = navItems.flatMap((item) =>
+      (item.ids ?? []).map((id) => {
+        const element =
+          document.getElementById(id) ??
+          document.querySelector<HTMLElement>(`[data-nav-section="${id}"]`);
+        return { navId: item.ids?.[0] ?? id, element };
+      })
+    );
+    const elements = sectionEntries.filter(
+      (entry): entry is { navId: string; element: HTMLElement } =>
+        Boolean(entry.element)
+    );
     if (!elements.length) return;
 
     const updateActive = (next: string) => {
@@ -34,31 +45,43 @@ export default function TerminalHeader() {
       setActiveId(next);
     };
 
-    const hash = window.location.hash.replace("#", "");
-    if (hash && sections.includes(hash)) {
-      updateActive(hash);
-    } else {
-      updateActive(sections[0]);
-    }
+    const pickActive = () => {
+      const viewportTop = 0;
+      const viewportBottom = window.innerHeight;
+      const viewportMiddle = window.innerHeight * 0.45;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (!visible.length) return;
-        const next = visible[0].target.id;
-        if (next) updateActive(next);
-      },
-      {
-        rootMargin: "-20% 0px -55% 0px",
-        threshold: [0.15, 0.45, 0.75],
-      }
-    );
+      let next = navItems[0]?.ids?.[0] ?? "about";
+      let maxVisible = -1;
 
-    elements.forEach((element) => observer.observe(element));
+      elements.forEach(({ navId, element }) => {
+        const rect = element.getBoundingClientRect();
+        const visible =
+          Math.min(rect.bottom, viewportBottom) - Math.max(rect.top, viewportTop);
 
-    return () => observer.disconnect();
+        if (visible > maxVisible) {
+          maxVisible = visible;
+          next = navId;
+        }
+      });
+
+      elements.forEach(({ navId, element }) => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= viewportMiddle && rect.bottom >= viewportMiddle) {
+          next = navId;
+        }
+      });
+
+      updateActive(next);
+    };
+
+    pickActive();
+    window.addEventListener("scroll", pickActive, { passive: true });
+    window.addEventListener("resize", pickActive);
+
+    return () => {
+      window.removeEventListener("scroll", pickActive);
+      window.removeEventListener("resize", pickActive);
+    };
   }, [isHome]);
 
   return (
@@ -79,7 +102,7 @@ export default function TerminalHeader() {
               key={item.label}
               href={item.href}
               className={`nav-link${
-                (isHome && item.id && activeId === item.id) ||
+                (isHome && item.ids?.[0] && activeId === item.ids[0]) ||
                 (!isHome && item.match && pathname.startsWith(item.match))
                   ? " nav-link--active"
                   : ""
@@ -87,7 +110,7 @@ export default function TerminalHeader() {
               data-magnet
               data-cursor={item.label}
               aria-current={
-                (isHome && item.id && activeId === item.id) ||
+                (isHome && item.ids?.[0] && activeId === item.ids[0]) ||
                 (!isHome && item.match && pathname.startsWith(item.match))
                   ? "location"
                   : undefined

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import ContributionGraph from "@/components/portfolio/ContributionGraph";
 import GitHubActivity from "@/components/portfolio/GitHubActivity";
 import WorkFocus from "@/components/portfolio/WorkFocus";
@@ -89,6 +91,51 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section-block about-section" data-nav-section="about" data-reveal>
+        <div className="about-grid">
+          <div className="about-portrait">
+            <div className="about-portrait__frame">
+              <Image
+                src="/en1.png"
+                alt="Mason Liu"
+                width={1200}
+                height={1200}
+                className="about-portrait__image"
+                priority
+              />
+            </div>
+            <p className="about-portrait__meta">Dallas, TX · CS @ UTD</p>
+          </div>
+          <div className="about-copy">
+            <h2
+              className="section-title outline-fill blob-text"
+              data-fill
+              data-blob-text="About."
+            >
+              About.
+            </h2>
+            <div className="about-copy__body">
+              <p>
+                I&apos;m Mason Liu, a Computer Science student based in Dallas.
+                I build full-stack software, game systems, low-level technical
+                work, and interactive hardware.
+              </p>
+              <p>
+                Most of the work here starts from the same place: build the
+                system from scratch, understand the constraints, and make the
+                behavior legible. Some projects are product-focused, some are
+                more technical, but all of them are things I wanted to fully
+                own and ship.
+              </p>
+              <p>
+                Outside of software, I spend time on photography, sports, and
+                music. Those show up here too, but the work comes first.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <WorkFocus id="projects" className="section-block work-section" />
 
       <section className="section-block" id="experience" data-reveal>
@@ -103,16 +150,28 @@ export default function HomePage() {
           <div className="experience-list">
             {experienceItems.map((item) => (
               <article key={item.title} className="experience-item">
-                <div className="experience-item__top">
-                  <h3>{item.title}</h3>
-                  <span>{item.meta}</span>
+                <div className="experience-item__header">
+                  <div className="experience-item__identity">
+                    <p className="experience-item__label">Company</p>
+                    <h3>{item.title}</h3>
+                  </div>
+                  <div className="experience-item__location">
+                    <p className="experience-item__label">Location</p>
+                    <span>{item.meta}</span>
+                  </div>
                 </div>
                 <div className="experience-role-list">
                   {item.roles.map((role) => (
                     <div key={`${item.title}-${role.title}`} className="experience-role">
-                      <div className="experience-role__top">
-                        <h4>{role.title}</h4>
-                        <span>{role.meta}</span>
+                      <div className="experience-role__header">
+                        <div className="experience-role__identity">
+                          <p className="experience-item__label">Role</p>
+                          <h4>{role.title}</h4>
+                        </div>
+                        <div className="experience-role__meta">
+                          <p className="experience-item__label">Dates</p>
+                          <span>{role.meta}</span>
+                        </div>
                       </div>
                       <p>{role.body}</p>
                     </div>
@@ -147,29 +206,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <div className="home-bottom">
-        <div className="home-links" aria-label="Contact links">
-          <a href="mailto:liumasn@gmail.com">Email</a>
-          <a
-            href="https://www.linkedin.com/in/masonliiu/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://github.com/masonliiu"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
-          <a href="/resume.pdf" target="_blank" rel="noreferrer">
-            Resume
-          </a>
-        </div>
-        <div className="home-mark">TM {new Date().getFullYear()} Mason Liu</div>
-      </div>
     </main>
   );
 }

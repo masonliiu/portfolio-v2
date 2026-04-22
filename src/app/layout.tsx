@@ -5,6 +5,7 @@ import "./globals.css";
 import RouteHeader from "@/components/portfolio/RouteHeader";
 import MotionOrchestrator from "@/components/portfolio/MotionOrchestrator";
 import CursorController from "@/components/portfolio/CursorController";
+import FixedFooter from "@/components/portfolio/FixedFooter";
 import { ViewTransitions } from "next-view-transitions";
 
 const bebasNeue = Bebas_Neue({
@@ -41,6 +42,7 @@ export default function RootLayout({
         <div className="cursor-blob" aria-hidden="true" />
         <ViewTransitions>
           <RouteHeader />
+          <FixedFooter />
           {children}
         </ViewTransitions>
       </body>
