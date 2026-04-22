@@ -24,10 +24,10 @@ export default function CursorController() {
     if (prefersReducedMotion || !finePointer) return;
 
     let blobTargets = Array.from(
-      document.querySelectorAll<HTMLElement>(".blob-text, .hero-swap-text")
+      document.querySelectorAll<HTMLElement>(".blob-text")
     );
     let blobTexts = Array.from(
-      document.querySelectorAll<HTMLElement>(".blob-text, .hero-swap-text")
+      document.querySelectorAll<HTMLElement>(".blob-text")
     );
 
     const smallSize = 36;
@@ -71,10 +71,10 @@ export default function CursorController() {
 
     const handleResize = () => {
       blobTargets = Array.from(
-        document.querySelectorAll<HTMLElement>(".blob-text, .hero-swap-text")
+        document.querySelectorAll<HTMLElement>(".blob-text")
       );
       blobTexts = Array.from(
-        document.querySelectorAll<HTMLElement>(".blob-text, .hero-swap-text")
+        document.querySelectorAll<HTMLElement>(".blob-text")
       );
     };
 

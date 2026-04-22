@@ -399,53 +399,6 @@ button:disabled {
   opacity: 1;
 }
 
-.hero-text .hero-swap-text {
-  display: inline-block;
-  position: relative;
-}
-
-.hero-swap-text__sizer {
-  display: block;
-  visibility: hidden;
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-.hero-swap-text__base,
-.hero-swap-text__cover,
-.hero-swap-text__reveal {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-.hero-swap-text__base {
-  color: var(--ink);
-}
-
-.hero-swap-text__cover,
-.hero-swap-text__reveal {
-  clip-path: circle(
-    calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
-  );
-  -webkit-clip-path: circle(
-    calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
-  );
-}
-
-.hero-swap-text__cover {
-  color: var(--accent);
-}
-
-.hero-swap-text__reveal {
-  color: var(--blob-ink);
-}
-
-
 .hero-subline {
   max-width: 32rem;
   color: var(--ink);

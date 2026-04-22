@@ -6,12 +6,7 @@ import ContributionGraph from "@/components/portfolio/ContributionGraph";
 import GitHubActivity from "@/components/portfolio/GitHubActivity";
 import WorkFocus from "@/components/portfolio/WorkFocus";
 
-const heroLines = [
-  {
-    text: "10x engineer",
-    reveal: "on a good day",
-  },
-];
+const heroHeadline = "10x engineer";
 
 const experienceItems = [
   {
@@ -66,27 +61,7 @@ export default function HomePage() {
           <div>
             <h1 className="hero-name">Mason Liu</h1>
             <div className="hero-stack" data-hero>
-              <div className="hero-text" data-blob-target>
-                {heroLines.map((line) => (
-                  <span
-                    key={line.text}
-                    className="hero-swap-text"
-                    data-blob-target
-                    aria-label={line.text}
-                  >
-                    <span className="hero-swap-text__sizer" aria-hidden="true">
-                      {line.reveal}
-                    </span>
-                    <span className="hero-swap-text__base">{line.text}</span>
-                    <span className="hero-swap-text__cover" aria-hidden="true">
-                      {line.text}
-                    </span>
-                    <span className="hero-swap-text__reveal" aria-hidden="true">
-                      {line.reveal}
-                    </span>
-                  </span>
-                ))}
-              </div>
+              <div className="hero-text">{heroHeadline}</div>
             </div>
             <p
               className="hero-subline blob-text"
