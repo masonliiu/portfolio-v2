@@ -63,7 +63,12 @@ export default function HomePage() {
             <h1 className="hero-name">Mason Liu</h1>
             <div className="hero-stack" data-hero>
               <div className="hero-text">
-                <span className="hero-swap-shell" data-hero-swap data-blob-target>
+                <span
+                  className="hero-swap-shell"
+                  data-hero-swap
+                  data-blob-target
+                  aria-label={heroHeadline}
+                >
                   <span className="hero-swap-sizer" aria-hidden="true">
                     {heroReveal}
                   </span>
