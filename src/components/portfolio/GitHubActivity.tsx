@@ -89,16 +89,16 @@ export default function GitHubActivity() {
   );
 
   return (
-    <section className="signal-item">
+    <section className="signal-card">
       <div className="flex items-center justify-between">
-        <h3 className="section-kicker">Recent commits</h3>
+        <h3 className="signal-card__title">Recent commits</h3>
         <a
           href="https://github.com/masonliiu"
           target="_blank"
           rel="noreferrer"
           className="work-meta"
         >
-          View on GitHub →
+          GitHub
         </a>
       </div>
       {status === "loading" ? (

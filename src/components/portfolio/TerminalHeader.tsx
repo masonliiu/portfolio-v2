@@ -4,31 +4,22 @@ import { Link as TransitionLink } from "next-view-transitions";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
-const homeItems = [
-  { label: "About", href: "/#about", id: "about" },
-  { label: "Work", href: "/#work", id: "work" },
-  { label: "Areas", href: "/#areas", id: "areas" },
+const navItems = [
+  { label: "Projects", href: "/#projects", id: "projects", match: "/projects" },
+  { label: "Experience", href: "/#experience", id: "experience" },
   { label: "Contact", href: "/#contact", id: "contact" },
-];
-
-const innerItems = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "About", href: "/about" },
-  { label: "Resume", href: "/resume.pdf", external: true },
 ];
 
 export default function TerminalHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const navItems = isHome ? homeItems : innerItems;
   const [activeId, setActiveId] = useState<string | null>(null);
   const activeRef = useRef<string | null>(null);
 
   useEffect(() => {
     if (!isHome) return;
 
-    const sections = homeItems
+    const sections = navItems
       .map((item) => item.id)
       .filter((id): id is string => Boolean(id));
     const elements = sections
@@ -82,40 +73,28 @@ export default function TerminalHeader() {
           ML
         </TransitionLink>
         <nav className="nav-links" aria-label="Primary">
-          {navItems.map((item) =>
-            item.external ? (
-              <a
-                key={item.label}
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                className="nav-link"
-                data-magnet
-                data-cursor={item.label}
-              >
-                {item.label}
-              </a>
-            ) : (
-              <TransitionLink
-                key={item.label}
-                href={item.href}
-                className={`nav-link${
-                  isHome && item.id && activeId === item.id
-                    ? " nav-link--active"
-                    : ""
-                }`}
-                data-magnet
-                data-cursor={item.label}
-                aria-current={
-                  isHome && item.id && activeId === item.id
-                    ? "location"
-                    : undefined
-                }
-              >
-                {item.label}
-              </TransitionLink>
-            )
-          )}
+          {navItems.map((item) => (
+            <TransitionLink
+              key={item.label}
+              href={item.href}
+              className={`nav-link${
+                (isHome && item.id && activeId === item.id) ||
+                (!isHome && item.match && pathname.startsWith(item.match))
+                  ? " nav-link--active"
+                  : ""
+              }`}
+              data-magnet
+              data-cursor={item.label}
+              aria-current={
+                (isHome && item.id && activeId === item.id) ||
+                (!isHome && item.match && pathname.startsWith(item.match))
+                  ? "location"
+                  : undefined
+              }
+            >
+              {item.label}
+            </TransitionLink>
+          ))}
         </nav>
       </div>
     </header>

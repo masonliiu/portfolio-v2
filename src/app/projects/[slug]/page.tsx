@@ -23,7 +23,6 @@ export default async function ProjectDetailPage({
     <main className="page-shell">
       <section className="section-block" data-reveal>
         <div className="section-center space-y-6">
-          <p className="section-kicker">Project</p>
           <h1
             className="section-title outline-fill blob-text"
             data-fill
@@ -33,6 +32,7 @@ export default async function ProjectDetailPage({
           </h1>
           <p className="section-subtitle">{project.summary}</p>
           <div className="flex flex-wrap gap-4 text-[11px] uppercase tracking-[0.3em] text-[var(--muted-2)]">
+            <span>{project.category}</span>
             <span>{project.createdAt}</span>
             <span>{project.repo}</span>
             <span>
@@ -83,7 +83,7 @@ export default async function ProjectDetailPage({
       </section>
 
       <Link className="work-meta inline-flex" href="/projects" data-magnet data-cursor="Back">
-        Back to projects →
+        Back to projects
       </Link>
     </main>
   );

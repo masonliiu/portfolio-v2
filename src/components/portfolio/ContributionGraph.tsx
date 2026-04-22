@@ -205,16 +205,16 @@ export default function ContributionGraph() {
   } as CSSProperties;
 
   return (
-    <section className="signal-item">
+    <section className="signal-card">
       <div className="flex items-center justify-between">
-        <h3 className="section-kicker">Contribution cadence</h3>
+        <h3 className="signal-card__title">Contributions</h3>
         <a
           className="work-meta"
           href="https://github.com/masonliiu"
           target="_blank"
           rel="noreferrer"
         >
-          View profile →
+          GitHub
         </a>
       </div>
       {status === "loading" ? (
