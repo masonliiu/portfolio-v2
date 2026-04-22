@@ -438,25 +438,17 @@ button:disabled {
   display: block;
 }
 
-.hero-swap-text {
-  color: transparent;
-}
-
 .hero-swap-text::before {
   content: attr(data-base-text);
   position: absolute;
   inset: 0;
   width: 100%;
-  color: var(--ink);
-  mask-image: radial-gradient(
-    circle calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y),
-    transparent 98%,
-    black 100%
+  color: var(--paper);
+  clip-path: circle(
+    calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
   );
-  -webkit-mask-image: radial-gradient(
-    circle calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y),
-    transparent 98%,
-    black 100%
+  -webkit-clip-path: circle(
+    calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
   );
   pointer-events: none;
   z-index: 2;
