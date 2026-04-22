@@ -17,8 +17,6 @@ export default function CursorController() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (pathname.startsWith("/immersive")) return;
-
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -121,8 +119,6 @@ export default function CursorController() {
   }, [pathname]);
 
   useEffect(() => {
-    if (pathname.startsWith("/immersive")) return;
-
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;

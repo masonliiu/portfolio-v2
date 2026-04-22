@@ -21,9 +21,9 @@ export default function WorkFocus({ className, id }: WorkFocusProps) {
         <h2
           className="section-title outline-fill blob-text"
           data-fill
-          data-blob-text="Projects."
+          data-blob-text="Selected work."
         >
-          Projects.
+          Selected work.
         </h2>
         <div className="work-focus__grid">
           <div className="work-focus__list">
@@ -53,6 +53,10 @@ export default function WorkFocus({ className, id }: WorkFocusProps) {
             <p className="work-meta">{active.repo}</p>
             <h3 className="work-focus__headline">{active.title}</h3>
             <p className="work-focus__summary">{active.summary}</p>
+            <p className="work-focus__note">
+              {active.sections[1]?.title ?? "Details"}:{" "}
+              {active.sections[1]?.bullets?.[0] ?? active.sections[0]?.body?.[0]}
+            </p>
             <div className="work-tags">
               {active.tags.slice(0, 6).map((tag) => (
                 <span key={tag}>{tag}</span>

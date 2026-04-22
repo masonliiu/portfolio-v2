@@ -11,25 +11,28 @@ export default function AboutContent() {
           Mason Liu.
         </h1>
         <p className="section-subtitle">
-          CS @ UTD. Full-stack systems, interaction design, and 3D experiments.
+          CS @ UTD. Product systems, game logic, runtime experiments, and
+          physical interfaces.
         </p>
       </div>
 
       <div className="mt-10 max-w-2xl space-y-5 text-[1rem] leading-relaxed text-[var(--muted)]">
         <p>
-          I build end-to-end products and focus on the details that make them
-          feel fast, clear, and intentional.
+          I build software and interactive systems where the mechanics matter.
+          The work ranges from full-stack products to game systems, low-level
+          runtime studies, and hardware-driven interface experiments.
         </p>
         <p>
-          Outside of software I explore photography, sports, and music.
+          The common thread is straightforward: build something concrete, make
+          the internals legible, and push past the default implementation.
         </p>
       </div>
 
       <div className="chip-row mt-10">
         <span>Dallas, TX</span>
         <span>CS @ UTD</span>
-        <span>Full-stack</span>
-        <span>3D</span>
+        <span>Systems</span>
+        <span>Interfaces</span>
       </div>
 
       <div className="hero-cta mt-10">
@@ -55,13 +58,13 @@ export default function AboutContent() {
           GitHub
         </a>
         <a
-          href="https://instagram.com/mason_liuu"
+          href="/resume.pdf"
           target="_blank"
           rel="noreferrer"
           data-magnet
-          data-cursor="Instagram"
+          data-cursor="Resume"
         >
-          Instagram
+          Resume
         </a>
       </div>
     </section>

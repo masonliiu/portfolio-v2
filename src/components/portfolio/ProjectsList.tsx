@@ -19,7 +19,10 @@ export default function ProjectsList() {
         >
           Projects.
         </h1>
-        <p className="section-subtitle">Full-stack products and systems work.</p>
+        <p className="section-subtitle">
+          Product systems, game systems, runtime studies, and physical
+          interface work.
+        </p>
       </div>
 
       <div className="work-list mt-10">

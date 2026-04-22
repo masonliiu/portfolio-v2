@@ -23,6 +23,50 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "moisture-transfer-interface",
+    title: "Moisture Transfer Interface",
+    repo: "utd-mi-lab/moisture-transfer-interface",
+    stars: null,
+    contributors: ["Mason Liu"],
+    createdAt: "Apr 9, 2026",
+    createdAtISO: "2026-04-09",
+    summary:
+      "Finger-mounted haptics interface combining moisture and thermal actuation to deliver localized feedback across finger segments.",
+    tags: [
+      "Haptics",
+      "Hardware",
+      "Interaction Design",
+      "Physical Computing",
+      "Perception Research",
+    ],
+    links: [],
+    sections: [
+      {
+        title: "Overview",
+        body: [
+          "A finger-mounted interface built to output localized moisture and temperature cues across different finger segments.",
+          "The project sits between hardware prototyping and interaction design, using physical feedback as a controllable interface layer instead of a visual one.",
+        ],
+      },
+      {
+        title: "What Makes It Interesting",
+        bullets: [
+          "Combines a moisture actuator and thermal actuator in a compact wearable form factor.",
+          "Targets specific finger regions to create segmented, place-based sensation instead of uniform feedback.",
+          "Explores how moisture and heat can be mapped together to produce more legible physical cues.",
+        ],
+      },
+      {
+        title: "System Thinking",
+        bullets: [
+          "Requires coordination between actuation, physical placement, and perceptual timing.",
+          "Treats sensation design as a mapping problem: where feedback happens, how strong it is, and what users think it means.",
+          "Demonstrates hardware-software thinking that is less about a device in isolation and more about the behavior of the full interaction loop.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "mase-labs",
     title: "Mase Labs Collective",
     repo: "masonliiu/maselabs",

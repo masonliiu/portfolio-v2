@@ -9,10 +9,8 @@ import SplitType from "split-type";
 
 export default function MotionOrchestrator() {
   const pathname = usePathname();
-  const isImmersive = pathname.startsWith("/immersive");
 
   useEffect(() => {
-    if (isImmersive) return;
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -105,10 +103,9 @@ export default function MotionOrchestrator() {
       root.style.removeProperty("--scroll-velocity");
       root.style.removeProperty("--scroll-offset");
     };
-  }, [isImmersive, pathname]);
+  }, [pathname]);
 
   useEffect(() => {
-    if (isImmersive) return;
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -141,10 +138,9 @@ export default function MotionOrchestrator() {
     return () => {
       triggers.forEach((trigger) => trigger.kill());
     };
-  }, [isImmersive, pathname]);
+  }, [pathname]);
 
   useEffect(() => {
-    if (isImmersive) return;
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -176,10 +172,9 @@ export default function MotionOrchestrator() {
     return () => {
       triggers.forEach((trigger) => trigger.kill());
     };
-  }, [isImmersive, pathname]);
+  }, [pathname]);
 
   useEffect(() => {
-    if (isImmersive) return;
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -201,7 +196,7 @@ export default function MotionOrchestrator() {
     return () => {
       split.revert();
     };
-  }, [isImmersive, pathname]);
+  }, [pathname]);
 
   return null;
 }

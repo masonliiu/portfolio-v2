@@ -3,19 +3,18 @@
 import { Link as TransitionLink } from "next-view-transitions";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import ImmersiveLaunchButton from "./ImmersiveLaunchButton";
 
 const homeItems = [
   { label: "About", href: "/#about", id: "about" },
   { label: "Work", href: "/#work", id: "work" },
-  { label: "Signal", href: "/#signal", id: "signal" },
+  { label: "Areas", href: "/#areas", id: "areas" },
   { label: "Contact", href: "/#contact", id: "contact" },
 ];
 
 const innerItems = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
-  { label: "Photography", href: "/photography" },
+  { label: "About", href: "/about" },
   { label: "Resume", href: "/resume.pdf", external: true },
 ];
 
@@ -117,14 +116,6 @@ export default function TerminalHeader() {
               </TransitionLink>
             )
           )}
-          <ImmersiveLaunchButton
-            className="nav-link nav-link--accent"
-            data-magnet
-            data-cursor="Enter"
-            aria-label="Immersive"
-          >
-            Immersive
-          </ImmersiveLaunchButton>
         </nav>
       </div>
     </header>

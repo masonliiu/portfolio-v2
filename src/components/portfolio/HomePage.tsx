@@ -1,30 +1,39 @@
 "use client";
 
-import ImmersiveLaunchButton from "@/components/portfolio/ImmersiveLaunchButton";
-import GitHubActivity from "@/components/portfolio/GitHubActivity";
-import ContributionGraph from "@/components/portfolio/ContributionGraph";
 import WorkFocus from "@/components/portfolio/WorkFocus";
 
-const heroLines = ["Full-stack", "systems", "3D", "interaction"];
+const heroLines = ["Systems", "products", "interfaces"];
 
-const aboutChips = ["Dallas, TX", "CS @ UTD", "Full-stack", "3D"];
-
-const immersiveHotspots = [
-  "Projects",
-  "Skills",
-  "Experience",
-  "Resume",
-  "Contact",
+const workAreas = [
+  {
+    title: "Product Systems",
+    body:
+      "End-to-end software with real operational constraints: checkout, fulfillment, admin flows, persistence, and reliability.",
+  },
+  {
+    title: "Game Systems",
+    body:
+      "Combat loops, progression, targeting, and state-heavy gameplay logic built to feel coherent under pressure.",
+  },
+  {
+    title: "Runtime Experiments",
+    body:
+      "Low-level and systems-oriented projects that expose the internals instead of hiding them behind abstractions.",
+  },
+  {
+    title: "Physical Interfaces",
+    body:
+      "Hardware, sensing, haptics, and interaction design work that treats feedback and perception as system design problems.",
+  },
 ];
 
 export default function HomePage() {
   return (
     <main className="home-shell">
-      <section className="hero-stage blob-stage" data-reveal>
+      <section className="hero-stage" data-reveal>
         <div className="hero-grid">
           <div>
             <p className="hero-kicker blob-text" data-blob-text="Mason Liu">
-
               Mason Liu
             </p>
             <div className="hero-stack" data-hero>
@@ -50,6 +59,26 @@ export default function HomePage() {
             <p className="hero-subline blob-text" data-blob-text="Dallas, TX">
               Dallas, TX
             </p>
+            <p className="hero-summary">
+              UT Dallas CS student building product systems, game logic,
+              runtime experiments, and physical interfaces.
+            </p>
+            <div className="hero-cta hero-cta--center">
+              <a href="/resume.pdf" target="_blank" rel="noreferrer" data-magnet>
+                Resume
+              </a>
+              <a
+                href="https://github.com/masonliiu"
+                target="_blank"
+                rel="noreferrer"
+                data-magnet
+              >
+                GitHub
+              </a>
+              <a href="mailto:liumasn@gmail.com" data-magnet>
+                Email
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -61,88 +90,57 @@ export default function HomePage() {
             <h2
               className="section-title outline-fill blob-text"
               data-fill
-              data-blob-text="Full-stack engineer. Interaction focus."
+              data-blob-text="Software systems. Physical thinking."
             >
-              Full-stack engineer. Interaction focus.
-            </h2>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-block collage-section" data-reveal>
-        <div className="section-grid">
-          <div>
-            <p className="section-kicker">Photography</p>
-            <h2
-              className="section-title outline-fill blob-text"
-              data-fill
-              data-blob-text="Visual studies."
-            >
-              Visual studies.
+              Software systems. Physical thinking.
             </h2>
           </div>
           <div className="section-content">
-            <div className="image-collage" aria-hidden="true">
-              <div className="image-card image-card--wide" />
-              <div className="image-card image-card--portrait" />
-              <div className="image-card image-card--small" />
-            </div>
+            <p className="section-subtitle">
+              I build across software, games, low-level experiments, and
+              interaction hardware. The throughline is consistent: systems with
+              real mechanics, clear constraints, and behavior that has to hold
+              up under use.
+            </p>
+            <p className="section-subtitle">
+              I am not trying to present as one narrow role. The value is in how
+              these projects connect: product architecture, gameplay logic,
+              memory models, sensing, actuation, and interfaces that need more
+              than surface polish.
+            </p>
           </div>
         </div>
       </section>
 
       <WorkFocus id="work" className="section-block work-section" />
 
-      <section className="section-block" id="immersive" data-reveal>
+      <section className="section-block" id="areas" data-reveal>
         <div className="section-grid">
           <div>
-            <p className="section-kicker">Immersive room</p>
+            <p className="section-kicker">Work areas</p>
             <h2
               className="section-title outline-fill blob-text"
               data-fill
-              data-blob-text="Walk the studio."
+              data-blob-text="Range with a throughline."
             >
-              Walk the studio.
+              Range with a throughline.
             </h2>
           </div>
           <div className="section-content">
             <p className="section-subtitle">
-              Optional 3D room with hotspots for projects, skills, and
-              experience.
+              The work spans different mediums, but it is not random. Each area
+              shows the same habit of thinking through mechanics, constraints,
+              and system behavior.
             </p>
-            <div className="immersive-hotspots">
-              {immersiveHotspots.map((item) => (
-                <span key={item}>{item}</span>
+            <div className="area-grid">
+              {workAreas.map((area) => (
+                <div key={area.title} className="area-card">
+                  <p className="work-meta">{area.title}</p>
+                  <p>{area.body}</p>
+                </div>
               ))}
             </div>
-            <ImmersiveLaunchButton
-              className="immersive-link"
-              data-magnet
-              data-cursor="Enter"
-            >
-              Enter immersive →
-            </ImmersiveLaunchButton>
           </div>
-        </div>
-      </section>
-
-      <section className="section-block" id="signal" data-reveal>
-        <div className="section-center">
-          <p className="section-kicker">Signal</p>
-          <h2
-            className="section-title outline-fill blob-text"
-            data-fill
-            data-blob-text="Shipping."
-          >
-            Shipping.
-          </h2>
-          <p className="section-subtitle">
-            Recent commits and a full year of contribution cadence.
-          </p>
-        </div>
-        <div className="signal-stack">
-          <GitHubActivity />
-          <ContributionGraph />
         </div>
       </section>
 
@@ -153,14 +151,15 @@ export default function HomePage() {
           <h2
             className="section-title outline-fill blob-text"
             data-fill
-            data-blob-text="Let&apos;s build."
+            data-blob-text="Open to strong work."
           >
-            Let&apos;s build.
+            Open to strong work.
           </h2>
           </div>
           <div className="section-content">
             <p className="section-subtitle">
-              Open to internships, full-time roles, and collaborations.
+              Open to internships, full-time roles, and projects where systems,
+              interaction, and technical depth actually matter.
             </p>
             <div className="contact-actions">
               <a href="mailto:liumasn@gmail.com" data-magnet data-cursor="Email">
@@ -183,6 +182,9 @@ export default function HomePage() {
                 data-cursor="GitHub"
               >
                 GitHub
+              </a>
+              <a href="/resume.pdf" target="_blank" rel="noreferrer" data-magnet>
+                Resume
               </a>
             </div>
             <p className="footer-inline">© {new Date().getFullYear()} Mason Liu</p>

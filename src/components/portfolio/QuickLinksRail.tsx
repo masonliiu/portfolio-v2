@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import ImmersiveLaunchButton from "@/components/portfolio/ImmersiveLaunchButton";
 
 const quickLinks = [
   { label: "Resume", href: "/resume.pdf" },
@@ -29,13 +28,6 @@ export default function QuickLinksRail() {
           {item.label}
         </a>
       ))}
-      <ImmersiveLaunchButton
-        className="quick-link quick-link--accent"
-        data-magnet
-        data-cursor="Enter"
-      >
-        Immersive
-      </ImmersiveLaunchButton>
     </div>
   );
 }

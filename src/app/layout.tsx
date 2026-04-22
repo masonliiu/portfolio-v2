@@ -3,11 +3,9 @@ import { Bebas_Neue, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 import RouteHeader from "@/components/portfolio/RouteHeader";
-import ImmersiveSnapshotOverlay from "@/components/immersive/ImmersiveSnapshotOverlay";
 import MotionOrchestrator from "@/components/portfolio/MotionOrchestrator";
 import CursorController from "@/components/portfolio/CursorController";
 import QuickLinksRail from "@/components/portfolio/QuickLinksRail";
-import SelectionLock from "@/components/portfolio/SelectionLock";
 import { ViewTransitions } from "next-view-transitions";
 
 const bebasNeue = Bebas_Neue({
@@ -26,7 +24,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "Mason Liu | Portfolio",
-  description: "Cinematic full-stack portfolio with an immersive 3D room.",
+  description: "Portfolio for Mason Liu, focused on systems, games, and interfaces.",
 };
 
 export default function RootLayout({
@@ -41,9 +39,7 @@ export default function RootLayout({
       >
         <MotionOrchestrator />
         <CursorController />
-        <SelectionLock />
         <div className="cursor-blob" aria-hidden="true" />
-        <ImmersiveSnapshotOverlay />
         <ViewTransitions>
           <RouteHeader />
           <QuickLinksRail />
