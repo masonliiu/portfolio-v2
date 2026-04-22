@@ -6,7 +6,12 @@ import ContributionGraph from "@/components/portfolio/ContributionGraph";
 import GitHubActivity from "@/components/portfolio/GitHubActivity";
 import WorkFocus from "@/components/portfolio/WorkFocus";
 
-const heroLines = ["Software", "game systems", "interfaces"];
+const heroLines = [
+  {
+    text: "10x engineer",
+    reveal: "on a good day",
+  },
+];
 
 const experienceItems = [
   {
@@ -64,12 +69,12 @@ export default function HomePage() {
               <div className="hero-text" data-blob-target>
                 {heroLines.map((line) => (
                   <span
-                    key={line}
+                    key={line.text}
                     className="blob-text"
-                    data-blob-text={line}
+                    data-blob-text={line.reveal}
                     data-blob-target
                   >
-                    {line}
+                    {line.text}
                   </span>
                 ))}
               </div>
