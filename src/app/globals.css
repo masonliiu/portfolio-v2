@@ -438,6 +438,22 @@ button:disabled {
   display: block;
 }
 
+.hero-swap-text::after {
+  content: attr(data-swap-text);
+  clip-path: none;
+  -webkit-clip-path: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.hero-swap-text.blob-target-active {
+  color: transparent;
+}
+
+.hero-swap-text.blob-target-active::after {
+  opacity: 1;
+}
+
 .hero-subline {
   max-width: 32rem;
   color: var(--ink);

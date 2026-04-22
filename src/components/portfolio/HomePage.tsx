@@ -70,8 +70,9 @@ export default function HomePage() {
                 {heroLines.map((line) => (
                   <span
                     key={line.text}
-                    className="blob-text"
+                    className="blob-text hero-swap-text"
                     data-blob-text={line.reveal}
+                    data-swap-text={line.reveal}
                     data-blob-target
                   >
                     {line.text}
