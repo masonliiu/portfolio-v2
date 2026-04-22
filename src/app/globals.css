@@ -399,72 +399,35 @@ button:disabled {
   opacity: 1;
 }
 
-.hero-swap-shell {
-  position: relative;
-  display: block;
-  width: max-content;
-  --blob-local-x: 50%;
-  --blob-local-y: 50%;
-  --hero-shell-w: 0px;
-  --hero-shell-h: 0px;
+.hero-swap-svg {
+  display: inline-block;
+  width: min(100%, 980px);
 }
 
-.hero-swap-sizer {
-  display: block;
-  visibility: hidden;
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-.hero-swap-layer {
-  position: absolute;
-  inset: 0;
+.hero-swap-svg__canvas {
   display: block;
   width: 100%;
-  height: 100%;
-  white-space: nowrap;
-  text-align: center;
-  pointer-events: none;
+  height: auto;
+  overflow: visible;
 }
 
-.hero-swap-layer--base {
-  color: var(--ink);
+.hero-swap-svg__text {
+  font-family: var(--font-display);
+  font-size: 170px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.hero-swap-viewport {
-  position: absolute;
-  left: var(--blob-local-x);
-  top: var(--blob-local-y);
-  width: var(--blob-size);
-  height: var(--blob-size);
-  transform: translate(-50%, -50%);
-  border-radius: 999px;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 2;
+.hero-swap-svg__text--base {
+  fill: var(--ink);
 }
 
-.hero-swap-copy {
-  position: absolute;
-  left: calc((var(--blob-size) / 2) - var(--blob-local-x));
-  top: calc((var(--blob-size) / 2) - var(--blob-local-y));
-  width: var(--hero-shell-w);
-  height: var(--hero-shell-h);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  text-align: center;
-  pointer-events: none;
+.hero-swap-svg__text--cover {
+  fill: var(--accent);
 }
 
-.hero-swap-copy--cover {
-  color: var(--accent);
-}
-
-.hero-swap-copy--reveal {
-  color: var(--blob-ink);
-  z-index: 3;
+.hero-swap-svg__text--reveal {
+  fill: var(--blob-ink);
 }
 
 .hero-subline {

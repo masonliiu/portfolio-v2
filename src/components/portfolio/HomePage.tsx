@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import ContributionGraph from "@/components/portfolio/ContributionGraph";
 import GitHubActivity from "@/components/portfolio/GitHubActivity";
+import HeroSwapText from "@/components/portfolio/HeroSwapText";
 import WorkFocus from "@/components/portfolio/WorkFocus";
 
 const heroHeadline = "10x engineer";
@@ -63,27 +64,7 @@ export default function HomePage() {
             <h1 className="hero-name">Mason Liu</h1>
             <div className="hero-stack" data-hero>
               <div className="hero-text">
-                <span
-                  className="hero-swap-shell"
-                  data-hero-swap
-                  data-blob-target
-                  aria-label={heroHeadline}
-                >
-                  <span className="hero-swap-sizer" aria-hidden="true">
-                    {heroReveal}
-                  </span>
-                  <span className="hero-swap-layer hero-swap-layer--base">
-                    {heroHeadline}
-                  </span>
-                  <span className="hero-swap-viewport" aria-hidden="true">
-                    <span className="hero-swap-copy hero-swap-copy--cover">
-                      {heroHeadline}
-                    </span>
-                    <span className="hero-swap-copy hero-swap-copy--reveal">
-                      {heroReveal}
-                    </span>
-                  </span>
-                </span>
+                <HeroSwapText base={heroHeadline} reveal={heroReveal} />
               </div>
             </div>
             <p

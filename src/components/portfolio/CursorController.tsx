@@ -24,13 +24,10 @@ export default function CursorController() {
     if (prefersReducedMotion || !finePointer) return;
 
     let blobTargets = Array.from(
-      document.querySelectorAll<HTMLElement>(".blob-text, [data-hero-swap]")
+      document.querySelectorAll<HTMLElement>(".blob-text, [data-blob-target]")
     );
     let blobTexts = Array.from(
       document.querySelectorAll<HTMLElement>(".blob-text")
-    );
-    let heroSwapTexts = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-hero-swap]")
     );
 
     const smallSize = 36;
@@ -74,13 +71,10 @@ export default function CursorController() {
 
     const handleResize = () => {
       blobTargets = Array.from(
-        document.querySelectorAll<HTMLElement>(".blob-text, [data-hero-swap]")
+        document.querySelectorAll<HTMLElement>(".blob-text, [data-blob-target]")
       );
       blobTexts = Array.from(
         document.querySelectorAll<HTMLElement>(".blob-text")
-      );
-      heroSwapTexts = Array.from(
-        document.querySelectorAll<HTMLElement>("[data-hero-swap]")
       );
     };
 
@@ -106,15 +100,6 @@ export default function CursorController() {
         element.style.setProperty("--blob-mask-x", `${state.x - rect.left}px`);
         element.style.setProperty("--blob-mask-y", `${state.y - rect.top}px`);
       });
-
-      heroSwapTexts.forEach((element) => {
-        const rect = element.getBoundingClientRect();
-        element.style.setProperty("--blob-local-x", `${state.x - rect.left}px`);
-        element.style.setProperty("--blob-local-y", `${state.y - rect.top}px`);
-        element.style.setProperty("--hero-shell-w", `${rect.width}px`);
-        element.style.setProperty("--hero-shell-h", `${rect.height}px`);
-      });
-
       raf = requestAnimationFrame(tick);
     };
 
