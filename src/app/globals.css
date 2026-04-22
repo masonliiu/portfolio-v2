@@ -443,7 +443,7 @@ button:disabled {
   position: absolute;
   inset: 0;
   width: 100%;
-  color: var(--paper);
+  color: var(--accent);
   clip-path: circle(
     calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
   );
