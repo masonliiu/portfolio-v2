@@ -399,6 +399,56 @@ button:disabled {
   opacity: 1;
 }
 
+.hero-swap-shell {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  --blob-local-x: 50%;
+  --blob-local-y: 50%;
+}
+
+.hero-swap-sizer,
+.hero-swap-layer {
+  grid-area: 1 / 1;
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-swap-sizer {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.hero-swap-layer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  pointer-events: none;
+}
+
+.hero-swap-layer--base {
+  color: var(--ink);
+}
+
+.hero-swap-layer--cover,
+.hero-swap-layer--reveal {
+  clip-path: circle(
+    calc(var(--blob-size) * 0.5) at var(--blob-local-x) var(--blob-local-y)
+  );
+  -webkit-clip-path: circle(
+    calc(var(--blob-size) * 0.5) at var(--blob-local-x) var(--blob-local-y)
+  );
+}
+
+.hero-swap-layer--cover {
+  color: var(--accent);
+}
+
+.hero-swap-layer--reveal {
+  color: var(--blob-ink);
+}
+
 .hero-subline {
   max-width: 32rem;
   color: var(--ink);

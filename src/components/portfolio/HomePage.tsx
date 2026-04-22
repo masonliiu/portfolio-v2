@@ -7,6 +7,7 @@ import GitHubActivity from "@/components/portfolio/GitHubActivity";
 import WorkFocus from "@/components/portfolio/WorkFocus";
 
 const heroHeadline = "10x engineer";
+const heroReveal = "on a good day";
 
 const experienceItems = [
   {
@@ -61,7 +62,28 @@ export default function HomePage() {
           <div>
             <h1 className="hero-name">Mason Liu</h1>
             <div className="hero-stack" data-hero>
-              <div className="hero-text">{heroHeadline}</div>
+              <div className="hero-text">
+                <span className="hero-swap-shell" data-hero-swap data-blob-target>
+                  <span className="hero-swap-sizer" aria-hidden="true">
+                    {heroReveal}
+                  </span>
+                  <span className="hero-swap-layer hero-swap-layer--base">
+                    {heroHeadline}
+                  </span>
+                  <span
+                    className="hero-swap-layer hero-swap-layer--cover"
+                    aria-hidden="true"
+                  >
+                    {heroHeadline}
+                  </span>
+                  <span
+                    className="hero-swap-layer hero-swap-layer--reveal"
+                    aria-hidden="true"
+                  >
+                    {heroReveal}
+                  </span>
+                </span>
+              </div>
             </div>
             <p
               className="hero-subline blob-text"
