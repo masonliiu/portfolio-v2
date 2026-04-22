@@ -6,7 +6,6 @@ export type ProjectLink = {
 export type Project = {
   slug: string;
   title: string;
-  category: string;
   repo: string;
   stars: number | null;
   contributors: string[];
@@ -26,7 +25,6 @@ export const projects: Project[] = [
   {
     slug: "moisture-transfer-interface",
     title: "Moisture Transfer Interface",
-    category: "Physical Interfaces",
     repo: "utd-mi-lab/moisture-transfer-interface",
     stars: null,
     contributors: ["Mason Liu"],
@@ -71,7 +69,6 @@ export const projects: Project[] = [
   {
     slug: "mase-labs",
     title: "Mase Labs Collective",
-    category: "Product Systems",
     repo: "masonliiu/maselabs",
     stars: null,
     contributors: ["masonliiu"],
@@ -135,7 +132,6 @@ export const projects: Project[] = [
   {
     slug: "jvm-custom-memory-arena",
     title: "JVM Custom Memory Arena",
-    category: "Runtime Experiments",
     repo: "masonliiu/jvm-custom-memory-arena",
     stars: null,
     contributors: ["masonliiu"],
@@ -200,7 +196,6 @@ export const projects: Project[] = [
   {
     slug: "soundborn",
     title: "Soundborn",
-    category: "Game Systems",
     repo: "masonliiu/soundborn",
     stars: null,
     contributors: ["masonliiu"],
@@ -262,7 +257,6 @@ export const projects: Project[] = [
   {
     slug: "bionic-reading-extension",
     title: "Bionic Reading Extension",
-    category: "Product Systems",
     repo: "masonliiu/bionic-reading-extension",
     stars: null,
     contributors: ["masonliiu"],
@@ -310,7 +304,6 @@ export const projects: Project[] = [
   {
     slug: "south-park-view-counter",
     title: "South Park View Counter",
-    category: "Product Systems",
     repo: "masonliiu/south-park-view-counter",
     stars: null,
     contributors: ["masonliiu"],

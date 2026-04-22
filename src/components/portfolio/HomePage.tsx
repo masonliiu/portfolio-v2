@@ -54,7 +54,7 @@ const experienceItems = [
 export default function HomePage() {
   return (
     <main className="home-shell">
-      <section className="hero-stage" data-reveal>
+      <section className="hero-stage" id="about" data-reveal>
         <div className="hero-grid">
           <div>
             <h1 className="hero-name">Mason Liu</h1>
@@ -147,27 +147,29 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <div className="home-links" aria-label="Contact links">
-        <a href="mailto:liumasn@gmail.com">Email</a>
-        <a
-          href="https://www.linkedin.com/in/masonliiu/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/masonliiu"
-          target="_blank"
-          rel="noreferrer"
-        >
-          GitHub
-        </a>
-        <a href="/resume.pdf" target="_blank" rel="noreferrer">
-          Resume
-        </a>
+      <div className="home-bottom">
+        <div className="home-links" aria-label="Contact links">
+          <a href="mailto:liumasn@gmail.com">Email</a>
+          <a
+            href="https://www.linkedin.com/in/masonliiu/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/masonliiu"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+          <a href="/resume.pdf" target="_blank" rel="noreferrer">
+            Resume
+          </a>
+        </div>
+        <div className="home-mark">TM {new Date().getFullYear()} Mason Liu</div>
       </div>
-      <div className="home-mark">TM {new Date().getFullYear()} Mason Liu</div>
     </main>
   );
 }

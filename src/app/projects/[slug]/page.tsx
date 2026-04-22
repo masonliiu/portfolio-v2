@@ -32,7 +32,6 @@ export default async function ProjectDetailPage({
           </h1>
           <p className="section-subtitle">{project.summary}</p>
           <div className="flex flex-wrap gap-4 text-[11px] uppercase tracking-[0.3em] text-[var(--muted-2)]">
-            <span>{project.category}</span>
             <span>{project.createdAt}</span>
             <span>{project.repo}</span>
             <span>

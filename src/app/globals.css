@@ -826,10 +826,15 @@ button:disabled {
   line-height: 1.7;
 }
 
+.home-bottom {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  margin-top: 2rem;
+  padding-bottom: var(--page-y);
+}
+
 .home-links {
-  position: fixed;
-  left: calc(var(--page-x) * 1);
-  bottom: calc(var(--page-y) * 0.9);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -838,19 +843,14 @@ button:disabled {
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--muted-2);
-  z-index: 30;
 }
 
 .home-mark {
-  position: fixed;
-  left: 50%;
-  bottom: calc(var(--page-y) * 0.9);
-  transform: translateX(-50%);
+  justify-self: center;
   font-size: 0.65rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--muted-2);
-  z-index: 30;
 }
 
 .signal-stack {
@@ -946,10 +946,9 @@ button:disabled {
     grid-template-columns: 1fr;
   }
 
-  .home-links,
-  .home-mark {
-    position: static;
-    transform: none;
+  .home-bottom {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 
   .home-links {
