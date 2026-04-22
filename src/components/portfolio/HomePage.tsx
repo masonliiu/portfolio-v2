@@ -74,6 +74,9 @@ export default function HomePage() {
                     data-blob-target
                     aria-label={line.text}
                   >
+                    <span className="hero-swap-text__sizer" aria-hidden="true">
+                      {line.reveal.length > line.text.length ? line.reveal : line.text}
+                    </span>
                     <span className="hero-swap-text__base">{line.text}</span>
                     <span className="hero-swap-text__cover" aria-hidden="true">
                       {line.text}

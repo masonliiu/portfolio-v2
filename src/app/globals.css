@@ -443,6 +443,13 @@ button:disabled {
   display: inline-block;
 }
 
+.hero-swap-text__sizer {
+  display: block;
+  visibility: hidden;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
 .hero-swap-text__base,
 .hero-swap-text__cover,
 .hero-swap-text__reveal {
@@ -450,6 +457,7 @@ button:disabled {
   white-space: nowrap;
 }
 
+.hero-swap-text__base,
 .hero-swap-text__cover,
 .hero-swap-text__reveal {
   position: absolute;
@@ -466,7 +474,6 @@ button:disabled {
 }
 
 .hero-swap-text__base {
-  position: relative;
   z-index: 1;
   color: var(--ink);
 }
