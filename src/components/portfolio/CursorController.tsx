@@ -111,6 +111,8 @@ export default function CursorController() {
         const rect = element.getBoundingClientRect();
         element.style.setProperty("--blob-local-x", `${state.x - rect.left}px`);
         element.style.setProperty("--blob-local-y", `${state.y - rect.top}px`);
+        element.style.setProperty("--hero-shell-w", `${rect.width}px`);
+        element.style.setProperty("--hero-shell-h", `${rect.height}px`);
       });
 
       raf = requestAnimationFrame(tick);

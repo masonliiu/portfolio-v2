@@ -75,17 +75,13 @@ export default function HomePage() {
                   <span className="hero-swap-layer hero-swap-layer--base">
                     {heroHeadline}
                   </span>
-                  <span
-                    className="hero-swap-layer hero-swap-layer--cover"
-                    aria-hidden="true"
-                  >
-                    {heroHeadline}
-                  </span>
-                  <span
-                    className="hero-swap-layer hero-swap-layer--reveal"
-                    aria-hidden="true"
-                  >
-                    {heroReveal}
+                  <span className="hero-swap-viewport" aria-hidden="true">
+                    <span className="hero-swap-copy hero-swap-copy--cover">
+                      {heroHeadline}
+                    </span>
+                    <span className="hero-swap-copy hero-swap-copy--reveal">
+                      {heroReveal}
+                    </span>
                   </span>
                 </span>
               </div>
