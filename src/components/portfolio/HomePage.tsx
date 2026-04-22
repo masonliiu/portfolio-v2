@@ -70,7 +70,7 @@ export default function HomePage() {
                 {heroLines.map((line) => (
                   <span
                     key={line.text}
-                    className="blob-text hero-swap-text"
+                    className="hero-swap-text"
                     data-blob-target
                     aria-label={line.text}
                   >
