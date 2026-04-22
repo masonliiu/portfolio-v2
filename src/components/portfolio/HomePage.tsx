@@ -71,11 +71,16 @@ export default function HomePage() {
                   <span
                     key={line.text}
                     className="blob-text hero-swap-text"
-                    data-blob-text={line.reveal}
-                    data-base-text={line.text}
                     data-blob-target
+                    aria-label={line.text}
                   >
-                    {line.text}
+                    <span className="hero-swap-text__base">{line.text}</span>
+                    <span className="hero-swap-text__cover" aria-hidden="true">
+                      {line.text}
+                    </span>
+                    <span className="hero-swap-text__reveal" aria-hidden="true">
+                      {line.reveal}
+                    </span>
                   </span>
                 ))}
               </div>

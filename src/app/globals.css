@@ -438,23 +438,44 @@ button:disabled {
   display: block;
 }
 
-.hero-swap-text::before {
-  content: attr(data-base-text);
+.hero-swap-text {
+  position: relative;
+  color: transparent;
+}
+
+.hero-swap-text__base,
+.hero-swap-text__cover,
+.hero-swap-text__reveal {
+  display: block;
+}
+
+.hero-swap-text__cover,
+.hero-swap-text__reveal {
   position: absolute;
   inset: 0;
   width: 100%;
-  color: var(--accent);
+  pointer-events: none;
   clip-path: circle(
     calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
   );
   -webkit-clip-path: circle(
     calc(var(--blob-size) * 0.5) at var(--blob-mask-x) var(--blob-mask-y)
   );
-  pointer-events: none;
+}
+
+.hero-swap-text__base {
+  position: relative;
+  z-index: 1;
+  color: var(--ink);
+}
+
+.hero-swap-text__cover {
+  color: var(--accent);
   z-index: 2;
 }
 
-.hero-swap-text::after {
+.hero-swap-text__reveal {
+  color: var(--blob-ink);
   z-index: 3;
 }
 
