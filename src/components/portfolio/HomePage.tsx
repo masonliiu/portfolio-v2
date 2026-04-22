@@ -72,7 +72,7 @@ export default function HomePage() {
                     key={line.text}
                     className="blob-text hero-swap-text"
                     data-blob-text={line.reveal}
-                    data-swap-text={line.reveal}
+                    data-base-text={line.text}
                     data-blob-target
                   >
                     {line.text}

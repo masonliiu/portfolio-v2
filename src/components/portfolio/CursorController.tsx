@@ -42,13 +42,11 @@ export default function CursorController() {
       size: smallSize,
       targetSize: smallSize,
     };
-    let activeBlobTarget: HTMLElement | null = null;
 
     const updateTargets = (x: number, y: number) => {
       state.targetX = x;
       state.targetY = y;
       state.targetSize = smallSize;
-      let nextActiveTarget: HTMLElement | null = null;
       for (const target of blobTargets) {
         const rect = target.getBoundingClientRect();
         const insideX =
@@ -57,18 +55,9 @@ export default function CursorController() {
           y >= rect.top - hitPadding && y <= rect.bottom + hitPadding;
         if (insideX && insideY) {
           state.targetSize = largeSize;
-          nextActiveTarget = target;
           break;
         }
       }
-
-      if (activeBlobTarget && activeBlobTarget !== nextActiveTarget) {
-        activeBlobTarget.classList.remove("blob-target-active");
-      }
-      if (nextActiveTarget && nextActiveTarget !== activeBlobTarget) {
-        nextActiveTarget.classList.add("blob-target-active");
-      }
-      activeBlobTarget = nextActiveTarget;
     };
 
     let pointerX = state.targetX;
@@ -126,9 +115,6 @@ export default function CursorController() {
       window.removeEventListener("pointermove", handleMove);
       window.removeEventListener("resize", handleResize);
       document.documentElement.classList.remove("blob-expanded");
-      if (activeBlobTarget) {
-        activeBlobTarget.classList.remove("blob-target-active");
-      }
     };
   }, [pathname]);
 
