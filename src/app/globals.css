@@ -411,25 +411,6 @@ button:disabled {
   overflow: visible;
 }
 
-.hero-swap-svg__text {
-  font-family: var(--font-display);
-  font-size: 170px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.hero-swap-svg__text--base {
-  fill: var(--ink);
-}
-
-.hero-swap-svg__text--cover {
-  fill: var(--accent);
-}
-
-.hero-swap-svg__text--reveal {
-  fill: var(--blob-ink);
-}
-
 .hero-subline {
   max-width: 32rem;
   color: var(--ink);
